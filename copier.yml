@@ -1,0 +1,79 @@
+
+_min_copier_version: "9.10.0"
+_subdirectory: template
+_answers_file: .copier-python-project/.copier-{{ project_language }}-answers.yml
+
+#===============================================================================
+# Interactive
+
+# optional project description
+project_description:
+  qmark: "\n >"
+  type: str
+  help: "Project Description:"
+  placeholder: "\"\""
+  default: ""
+
+# langauge .extension
+project_language:
+  type: str
+  qmark: "\n >"
+  help: "Project language extension"
+  placeholder: ".xx"
+  default: ""
+
+
+#===============================================================================
+# Deaults
+# Saved in ~/.config/copier/settings.yml
+
+author_name:
+  when: false
+
+author_email:
+  when: false
+
+github_user:
+  when: false
+
+
+#===============================================================================
+# Auto-generate
+
+# Capitalised Project Name
+project_name:
+  default: >-
+    {{
+      _folder_name
+      | trim
+      | title
+    }}
+  when: false
+
+# kebab-case-project-name
+project_slug:
+  type: str
+  default: >-
+    {{
+      _folder_name
+      | lower
+      | trim
+      | regex_replace('[^a-z0-9]+', '-')
+      | regex_replace('-+', '-')
+      | trim('-')
+    }}
+  when: false
+
+# snake_case_module_name
+module_slug:
+  type: str
+  default: >-
+    {{ project_slug | regex_replace('-', '_') }}
+  when: false
+
+# current year for licenses
+year:
+  type: int
+  default: "{{ '%Y' | strftime }}"
+  when: false
+

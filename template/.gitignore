@@ -1,0 +1,10 @@
+
+# .gitignore
+
+# misc
+**/*.swp
+**/*.swo
+**/*~
+**/.DS_Store
+**/.tags
+
