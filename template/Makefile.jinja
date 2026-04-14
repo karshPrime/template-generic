@@ -1,0 +1,15 @@
+
+.PHONY: run clean build
+
+run:
+	[command] ./{{ module_slug }}/main.{{ project_language }} $(filter-out run,$(MAKECMDGOALS))
+
+build:
+	[command] ./{{ module_slug }}/main.{{ project_language }} $(filter-out run,$(MAKECMDGOALS))
+
+clean:
+	[command] ./{{ module_slug }}/main.{{ project_language }} $(filter-out run,$(MAKECMDGOALS))
+
+%:
+	@:
+

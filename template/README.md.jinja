@@ -1,0 +1,46 @@
+# {{ project_name }}
+
+
+## About
+
+{{ project_description }}
+
+
+
+## Setup
+
+### Requirements
+
+### Installation
+
+
+
+## Developing
+
+Add development details, likely content:
+* Build instructions
+* Running tests
+* Flashing hardware
+
+
+## Release
+
+Add details on how a release is produced. Typically done in CI, therefore
+descibe process by which a release build is triggered, alternatively if no CI,
+describe manual steps to build and release.
+
+
+## Copier Update
+
+The project uses [Copier](https://copier.readthedocs.io/en/stable/) to manage
+its template. When the template is updated, the project can be easily brought
+up to date by running the following command from the project root:
+```bash
+$ copier update --defaults --answers-file .copier-xx-answers.yml
+```
+When the `--defaults` option is used, copier update skips all previously
+answered questions and prompts only for newly introduced ones.
+
+**Note:* `xx` in the `.copier-xx-answers.yml` will be replaced with language
+extension.
+
