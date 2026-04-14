@@ -4,23 +4,46 @@ _subdirectory: template
 _answers_file: .copier-python-project/.copier-{{ project_language }}-answers.yml
 
 #===============================================================================
-# Interactive
-
-# optional project description
-project_description:
-  qmark: "\n >"
-  type: str
-  help: "Project Description:"
-  placeholder: "\"\""
-  default: ""
+# Bench Calculations
 
 # langauge .extension
 project_language:
   type: str
+  default: >-
+    {{
+      _folder_name.rsplit('.', 1)[1]
+      if '.' in _folder_name
+      else 'xx'
+    }}
+  when: false
+
+# langauge raw name
+project_name_raw:
+  type: str
+  default: >-
+    {{
+      _folder_name.rsplit('.', 1)[0]
+      if '.' in _folder_name
+      else _folder_name
+    }}
+  when: false
+
+
+#===============================================================================
+# Interactive
+
+# optional project description
+project_description:
+  type: str
   qmark: "\n >"
-  help: "Project language extension"
-  placeholder: ".xx"
+  help: "Project Description:"
+  placeholder: "\"\""
   default: ""
+  when: >-
+    {{ not (
+         project_name_raw.startswith('bench')
+         and project_name_raw[5:].isdigit()
+       ) }}
 
 
 #===============================================================================
@@ -44,7 +67,7 @@ github_user:
 project_name:
   default: >-
     {{
-      _folder_name
+      project_name_raw
       | trim
       | title
     }}
@@ -55,7 +78,7 @@ project_slug:
   type: str
   default: >-
     {{
-      _folder_name
+      project_name_raw
       | lower
       | trim
       | regex_replace('[^a-z0-9]+', '-')

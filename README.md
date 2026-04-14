@@ -31,16 +31,13 @@ defaults:
 Run the following command:
 
 ```bash
-$ copier copy git@github.com:karshPrime/template-generic path/to/project --trust
+$ copier copy git@github.com:karshPrime/template-generic path/to/project.xx --trust
 ```
-Answer the Copier prompts to configure the project.
-* **Project Description:** Optional plain‑text description of the project.
-* **Language extension:** Choose the file extension or language identifier for
-  the template (for example `py`, `js`, `ts`, `go`, `rs`). The template will use
-  this value to create example source files and set up basic filenames.
-
-**Note:** The `--trust` option is required because the template runs `uv` and
-`git` commands.
+* Replace the `.xx` extension with the language of the new project.
+* **Project Description:** Answer the Copier prompt with an optional
+  plain‑text description of your project.
+* The `--trust` option is required because the template runs `uv` and `git`
+  commands.
 
 
 ## Template Readme
