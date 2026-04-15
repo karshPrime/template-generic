@@ -14,18 +14,6 @@ Install the Copier command:
 * **Documentation:** https://copier.readthedocs.io/en/stable
 
 
-#### Default Config
-
-User-specific values are loaded from the global configuration file - 
-`~/.config/copier/settings.yml`. If the file is not present or not saved, empty
-strings are used as defaults.
-```
-defaults:
-  author_name : "Karsh"
-  author_email: "karshMail@iCloud.com"
-  github_user : "karshPrime"
-```
-
 ### Create New Project
 
 Run the following command:
@@ -39,6 +27,18 @@ $ copier copy git@github.com:karshPrime/template-generic path/to/project.xx --tr
 * The `--trust` option is required because the template runs `uv` and `git`
   commands.
 
+
+### Default Config
+
+User-specific values are loaded from the global configuration file - 
+`~/.config/copier/settings.yml`. If the file is not present or not saved, empty
+strings are used as defaults.
+```
+defaults:
+  author_name : "Karsh"
+  author_email: "karshMail@iCloud.com"
+  github_user : "karshPrime"
+```
 
 ## Template Readme
 
